@@ -8,13 +8,19 @@ public class Student {
     private String student_name;
     private int faculty_id;
     private int course_id;
+    private int student_id;
 
     // Constructor
-    public Student(String register_number, String student_name, int faculty_id, int course_id) {
+    public Student(String register_number, String student_name, int faculty_id, int course_id, int student_id) {
         this.register_number = register_number;
         this.student_name = student_name;
         this.faculty_id = faculty_id;
         this.course_id = course_id;
+        this.student_id = student_id;
+    }
+
+    public int getStudent_id() {
+        return student_id;
     }
 
     public String getRegister_number() {

@@ -1,5 +1,6 @@
 package com.example.attendance;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,8 +17,13 @@ import com.example.attendance.Service.Response.ErrorResponse;
 import com.example.attendance.Service.Response.Service;
 import com.example.attendance.Service.Response.Student;
 import com.example.attendance.Service.Response.UnscannedAdapter;
+import com.example.attendance.Service.RestClient;
 import com.example.attendance.Service.SF;
+import com.example.attendance.databinding.ActivityAfterScannedBinding;
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,19 +37,23 @@ public class AfterScanned extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private UnscannedAdapter unscannedAdapter;
+    private List<AbsentListResponse.Stdent> studentList;
 
+
+    ActivityAfterScannedBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_after_scanned);
+        binding = ActivityAfterScannedBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Initialize RecyclerView
         recyclerView = findViewById(R.id.recyclerViewStudents);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Initialize Adapter
-        unscannedAdapter = new UnscannedAdapter();
+        studentList = new ArrayList<>();
+        unscannedAdapter = new UnscannedAdapter(studentList, this);
         recyclerView.setAdapter(unscannedAdapter);
         int facultyId;
         int courseId ;
@@ -52,21 +62,25 @@ public class AfterScanned extends AppCompatActivity {
 
         // Fetch Unscanned Students
         fetchUnscannedStudents(facultyId, courseId);
+        binding.btnUnscanned.setOnClickListener(v -> {
+            fetchUnscannedStudents(facultyId, courseId);
+        });
+        binding.btnScanned.setOnClickListener(v -> {
+            fetchScannedStudents(facultyId, courseId);
+        });
     }
 
-    private void fetchUnscannedStudents(int facultyId, int courseId) {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+    @SuppressLint("NotifyDataSetChanged")
+    private void fetchScannedStudents(int facultyId, int courseId) {
+        studentList.clear();
+        unscannedAdapter.notifyDataSetChanged();
 
-        Service service = retrofit.create(Service.class);
-
-        service.getUnScannedStudents(facultyId, courseId).enqueue(new Callback<AbsentListResponse>() {
+        RestClient.makeAPI().getScannedStudents(facultyId, courseId).enqueue(new Callback<AbsentListResponse>() {
             @Override
             public void onResponse(Call<AbsentListResponse> call, Response<AbsentListResponse> response) {
                 if(response.isSuccessful()) {
-
+                    studentList.addAll(response.body().getData());
+                    unscannedAdapter.notifyDataSetChanged();
                 } else {
                     handleErrorResponse(response);
                 }
@@ -79,7 +93,28 @@ public class AfterScanned extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    private void fetchUnscannedStudents(int facultyId, int courseId) {
+        studentList.clear();
+        unscannedAdapter.notifyDataSetChanged();
 
+        RestClient.makeAPI().getUnScannedStudents(facultyId, courseId).enqueue(new Callback<AbsentListResponse>() {
+            @Override
+            public void onResponse(Call<AbsentListResponse> call, Response<AbsentListResponse> response) {
+                if(response.isSuccessful()) {
+                    studentList.addAll(response.body().getData());
+                    unscannedAdapter.notifyDataSetChanged();
+                } else {
+                    handleErrorResponse(response);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AbsentListResponse> call, Throwable t) {
+                Toast.makeText(AfterScanned.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     private void handleErrorResponse(Response<?> response) {
         try {

@@ -65,9 +65,10 @@ public class Scennerr extends AppCompatActivity {
     }
 
     private void setupRegisterApiCall(int courseId, int facultyId) {
+        int studentId = SF.getLoginSF(Scennerr.this).getInt(SF.LOGIN_USER_ID, 0);
         String regNo = SF.getLoginSF(Scennerr.this).getString(SF.LOGIN_USER_REG_NO, "");
         String name = SF.getLoginSF(Scennerr.this).getString(SF.LOGIN_USER_NAME,"");
-        Student student = new Student(regNo, name, facultyId, courseId);
+        Student student = new Student(regNo, name, facultyId, courseId, studentId);
 
         RestClient.makeAPI().registerStudent(student).enqueue(new Callback<ScannerResponse>() {
             @Override

@@ -62,6 +62,11 @@ public interface Service {
                 Call<AbsentListResponse> getUnScannedStudents(@Query("faculty_id") int facultyId,
                                                               @Query("course_id") int courseId);
 
+        @GET("admin/present_studnets")
+        Call<AbsentListResponse> getScannedStudents(@Query("faculty_id") int facultyId,
+                                                      @Query("course_id") int courseId);
+
+
 
 
 }

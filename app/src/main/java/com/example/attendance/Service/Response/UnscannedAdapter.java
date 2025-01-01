@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.attendance.R;
@@ -16,6 +17,12 @@ public class UnscannedAdapter extends RecyclerView.Adapter<UnscannedAdapter.View
 
     private List<AbsentListResponse.Stdent> studentList;
 
+    private FragmentActivity activity;
+
+    public UnscannedAdapter(List<AbsentListResponse.Stdent> studentList, FragmentActivity activity) {
+        this.studentList = studentList;
+        this.activity = activity;
+    }
 
     @NonNull
     @Override
@@ -32,7 +39,7 @@ public class UnscannedAdapter extends RecyclerView.Adapter<UnscannedAdapter.View
 
     @Override
     public int getItemCount() {
-        return studentList.size();
+        return studentList==null?0:studentList.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -40,7 +47,7 @@ public class UnscannedAdapter extends RecyclerView.Adapter<UnscannedAdapter.View
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.to_after_scanned);
+            nameTextView = itemView.findViewById(R.id.course);
         }
     }
 }

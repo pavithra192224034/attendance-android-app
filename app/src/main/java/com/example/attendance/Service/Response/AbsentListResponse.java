@@ -6,9 +6,9 @@ public class AbsentListResponse {
     private boolean success;
     private String message;
 
-    private List<Student> data;
+    private List<Stdent> data;
 
-    public List<Student> getData() {
+    public List<Stdent> getData() {
         return data;
     }
 
@@ -20,7 +20,7 @@ public class AbsentListResponse {
         return message;
     }
 
-    public class Stdent {
+    public static class Stdent {
         private String register_number;
         private String student_name;
         private String Mobile_contact;
