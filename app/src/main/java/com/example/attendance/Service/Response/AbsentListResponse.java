@@ -6,9 +6,9 @@ public class AbsentListResponse {
     private boolean success;
     private String message;
 
-    private List<Student> data;
+    private List<Stdent> data;
 
-    public List<Student> getData() {
+    public List<Stdent> getData() {
         return data;
     }
 

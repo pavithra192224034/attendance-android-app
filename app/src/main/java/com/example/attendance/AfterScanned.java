@@ -79,8 +79,6 @@ public class AfterScanned extends AppCompatActivity {
         });
     }
 
-
-
     private void handleErrorResponse(Response<?> response) {
         try {
             if (response.errorBody() != null) {
