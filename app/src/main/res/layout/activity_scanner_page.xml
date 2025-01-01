@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:padding="16dp">
+
+
+
+    <!-- QR Code Section -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan QR code to mark Attendance"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/qr_code_image"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:src="@drawable/scan"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp" />
+
+
+
+
+    <!-- Attendance List -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:orientation="vertical"/>
+
+    <Button
+        android:id="@+id/btn_scan"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/qr_code_image"
+        android:text="Close and Launch"
+        android:textSize="20sp"
+        android:backgroundTint="#00BCD4"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true" />
+
+
+
+
+
+</RelativeLayout>

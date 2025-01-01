@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StudentScan">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:padding="16dp">
+
+        <!-- Top Corner Image -->
+        <ImageView
+            android:id="@+id/top_corner_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/circle"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY" />
+
+        <!-- Search and Date Selector -->
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="116dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+        <!-- QR Code Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/top_corner_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="Scan QR code to mark Attendance"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/qr_code_image"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_below="@+id/top_corner_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/scan" />
+
+
+        <!-- Scan Button -->
+        <Button
+            android:id="@+id/generate_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_below="@+id/qr_code_image"
+            android:text="Scan Now"
+            android:onClick="yes"
+            android:textSize="20sp"
+            android:backgroundTint="#00BCD4"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true" />
+
+        <!-- Bottom Corner Image -->
+        <ImageView
+            android:id="@+id/bottom_corner_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/attendance1"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitXY" />
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

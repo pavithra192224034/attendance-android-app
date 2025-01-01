@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/bg"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tvEnterCourseDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Course Details"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etCourseName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Course name"
+            android:background="#d9d9d9"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="12dp" />
+
+
+        <EditText
+            android:id="@+id/etcoursecode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter course code"
+            android:background="#D9D9D9"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:layout_marginBottom="24dp" />
+
+        <EditText
+            android:id="@+id/etNumberOfStudents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter number of students"
+            android:background="#D9D9D9"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:layout_marginBottom="24dp" />
+
+        <TextView
+            android:id="@+id/tvCourseLeadDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Course Lead Details"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etFacultyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Faculty's name"
+            android:background="#D9D9D9"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etFacultyContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Faculty's mobile Contact"
+            android:background="#D9D9D9"
+            android:padding="12dp"
+            android:textColor="@color/black"
+            android:inputType="phone"
+            android:layout_marginBottom="24dp" />
+
+
+        <ImageView
+            android:id="@+id/pickimage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/pic" />
+
+        <Button
+            android:id="@+id/pickimagebutton"
+            android:layout_width="169dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:backgroundTint="#A17368"
+            android:padding="10dp"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Pick Image"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#00BCD4"
+            android:textColor="#ffffff"
+            android:padding="12dp" />
+    </LinearLayout>
+
+</RelativeLayout>

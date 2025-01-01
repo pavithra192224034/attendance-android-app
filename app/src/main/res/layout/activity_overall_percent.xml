@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OverallPercent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <!-- Top Date -->
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 April 2023"
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <!-- Attendance Header -->
+        <TextView
+            android:id="@+id/attendance_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_text"
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:text="Attendance"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Subject Name -->
+        <TextView
+            android:id="@+id/subject_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/attendance_header"
+            android:layout_marginTop="8dp"
+            android:layout_centerHorizontal="true"
+            android:text="Cloud Computing"
+            android:textSize="18sp" />
+
+
+        <!-- Legend -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="16dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <!-- Present Legend -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@android:color/holo_green_light" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Present"
+                android:textSize="16sp" />
+
+            <!-- Spacer -->
+            <View
+                android:layout_width="16dp"
+                android:layout_height="20dp" />
+
+            <!-- Absent Legend -->
+            <View
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@android:color/holo_red_light" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Absent"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Bottom Corner Image -->
+        <ImageView
+            android:id="@+id/bottom_corner_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitCenter" />
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

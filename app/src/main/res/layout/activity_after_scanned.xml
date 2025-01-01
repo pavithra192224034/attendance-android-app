@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Header Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student Attendance"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:padding="16dp" />
+
+    <!-- Buttons for Scanned and Unscanned -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/btnScanned"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Scanned"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:backgroundTint="#00BCD4"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnUnscanned"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="Unscanned"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:backgroundTint="#00BCD4"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- RecyclerView for Scanned/Unscanned Students -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewStudents"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        android:padding="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_student" />
+    <Button
+        android:id="@+id/btn_scan"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Close and Launch"
+        android:textSize="15sp"
+        android:backgroundTint="#00BCD4"
+        android:layout_marginStart="100dp"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true" />
+
+</LinearLayout>
